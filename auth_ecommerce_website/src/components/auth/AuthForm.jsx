@@ -4,6 +4,8 @@ import styles from "./AuthForm.module.css";
 
 const AuthForm = () => {
 
+    const [isLoading, setIsLoading] = useState(false);
+
     const [isLogIn, setIsLogIn] = useState(true);
 
     const switchModeToggler = () => {
@@ -23,6 +25,7 @@ const AuthForm = () => {
             // console.log(enteredEmail);
             // console.log(enteredPassword);
 
+            setIsLoading(true);
             let url;
             if (isLogIn) {
                 url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=
@@ -55,12 +58,15 @@ const AuthForm = () => {
                 }
             }).then((response) => {
                 console.log(response.idToken);
+                setIsLoading(false);
             })
         } catch (error) {
             console.log(error.message);
             alert(error.message)
         }
 
+        inputEmailRef.current.value = "";
+        inputPasswordRef.current.value = "";
     };
 
 
@@ -86,7 +92,8 @@ const AuthForm = () => {
                     </div>
 
                     <div className={styles.actions}>
-                        <button> {isLogIn ? "Login" : "Create Account"} </button>
+                        {!isLoading && <button> {isLogIn ? "Login" : "Create Account"} </button>}
+                        {isLoading && <p className={styles.para_loading}> Sending Request...</p>}
 
                         <button onClick={switchModeToggler}>
                             {isLogIn ? "Create new account" : "Login with existing account"}
