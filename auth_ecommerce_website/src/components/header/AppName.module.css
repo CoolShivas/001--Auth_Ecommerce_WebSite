@@ -1,0 +1,7 @@
+.header_container {
+  /* margin: 20px; */
+
+  && nav {
+    padding: 30px;
+  }
+}

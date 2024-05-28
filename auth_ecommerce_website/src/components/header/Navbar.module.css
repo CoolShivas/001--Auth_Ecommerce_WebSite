@@ -1,0 +1,22 @@
+.navbar {
+  /* background-color: orange; */
+
+  && .navbar_ultag {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    && li {
+      list-style: none;
+
+      && .nav_nav {
+        color: white;
+        text-decoration: none;
+        text-transform: capitalize;
+        font-size: 20px;
+      }
+    }
+  }
+}
