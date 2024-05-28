@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import styles from "./AuthForm.module.css";
 
 
@@ -10,22 +10,38 @@ const AuthForm = () => {
         setIsLogIn((prevState) => !prevState);
     };
 
+    const inputEmailRef = useRef();
+    const inputPasswordRef = useRef();
+
+    const handlerOnFormSubmit = (event) => {
+        event.preventDefault();
+
+        const enteredEmail = inputEmailRef.current.value;
+        const enteredPassword = inputPasswordRef.current.value;
+
+        console.log(enteredEmail);
+        console.log(enteredPassword);
+    };
+
+
     return (
         <div className={styles.auth_form__div}>
             <div className={styles.auth_form__container}>
 
                 <h1> {isLogIn ? "Login" : "SignUp"} </h1>
 
-                <form action="#" className={styles.form_div}>
+                <form action="#" className={styles.form_div} onSubmit={handlerOnFormSubmit}>
 
                     <div className={styles.email_div}>
                         <input type="email" placeholder="emailId" required
                             className="form-control"
+                            ref={inputEmailRef}
                         />
                     </div>
                     <div className={styles.password_div}>
                         <input type="password" placeholder="password" required
                             className="form-control"
+                            ref={inputPasswordRef}
                         />
                     </div>
 
