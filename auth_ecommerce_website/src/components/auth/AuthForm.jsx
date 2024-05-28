@@ -13,14 +13,54 @@ const AuthForm = () => {
     const inputEmailRef = useRef();
     const inputPasswordRef = useRef();
 
-    const handlerOnFormSubmit = (event) => {
-        event.preventDefault();
+    const handlerOnFormSubmit = async (event) => {
+        try {
+            event.preventDefault();
 
-        const enteredEmail = inputEmailRef.current.value;
-        const enteredPassword = inputPasswordRef.current.value;
+            const enteredEmail = inputEmailRef.current.value;
+            const enteredPassword = inputPasswordRef.current.value;
 
-        console.log(enteredEmail);
-        console.log(enteredPassword);
+            // console.log(enteredEmail);
+            // console.log(enteredPassword);
+
+            let url;
+            if (isLogIn) {
+                url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=
+             AIzaSyD1lOMdT2N9SYAGevw979kq67kvXyFqUFc`
+            }
+            else {
+                url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=
+             AIzaSyD1lOMdT2N9SYAGevw979kq67kvXyFqUFc`
+            }
+            await fetch(url, {
+                method: "POST",
+                body: JSON.stringify({
+                    email: enteredEmail,
+                    password: enteredPassword,
+                    returnSecureToken: true
+                }),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).then((res) => {
+                console.log(res);
+                if (res.ok) {
+                    return res.json();
+                }
+                else {
+                    return res.json().then(() => {
+                        let errMsg = "Authentication is failed";
+                        throw new Error(errMsg);
+                    })
+                }
+            }).then((response) => {
+                console.log(response.idToken);
+            })
+        } catch (error) {
+            console.log(error.message);
+            alert(error.message)
+        }
+
     };
 
 
