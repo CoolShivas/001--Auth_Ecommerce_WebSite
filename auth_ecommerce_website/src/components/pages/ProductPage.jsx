@@ -49,44 +49,29 @@ const ProductPage = () => {
             <div className={styles.product_items__div}>
 
                 <div className={styles.products_container}>
-                    {/*Starting of FIRST Hard coded the first product  */}
-                    {/* <p>{productElements[0].id} </p> */}
-                    <h2>
-                        {productElements[0].title}
-                    </h2>
-                    <img src={productElements[0].imageUrl} alt="image not found" />
 
-                    <div className={styles.product_price__quantity}>
-                        <span className={styles.price}>
-                            Rs. {productElements[0].price} /-
-                        </span>
-                        <span>
-                            {/* {productElements[0].quantity} */}
-                            <button className={styles.add_to_cart__btn}> Add to cart </button>
-                        </span>
-                    </div>
-                    {/* Ending of FIRST Hard coded the first product  */}
+                    {productElements.map((currProduct) => {
+                        return <li key={currProduct.id}>
+                            <h2>
+                                {currProduct.title}
+                            </h2>
+                            <figure>
+                                <img src={currProduct.imageUrl} alt="image not found" />
+                            </figure>
+                            <div className={styles.product_price__quantity}>
+                                <span className={styles.price}>
+                                    Rs. {currProduct.price} /-
+                                </span>
+                                <span>
+                                    {/* {productElements[0].quantity} */}
+                                    <button className={styles.add_to_cart__btn}> Add to cart </button>
+                                </span>
+                            </div>
 
-                    {/*Starting of SECOND Hard coded the first product  */}
-                    {/* <p>{productElements[0].id} </p> */}
-                    <h2>
-                        {productElements[1].title}
-                    </h2>
-                    <img src={productElements[1].imageUrl} alt="image not found" />
-
-                    <div className={styles.product_price__quantity}>
-                        <span className={styles.price}>
-                            Rs. {productElements[1].price} /-
-                        </span>
-                        <span>
-                            {/* {productElements[0].quantity} */}
-                            <button className={styles.add_to_cart__btn}> Add to cart </button>
-                        </span>
-                    </div>
-                    {/* Ending of SECOND Hard coded the first product  */}
+                        </li>
+                    })}
 
                 </div>
-
             </div>
         </div>
     )

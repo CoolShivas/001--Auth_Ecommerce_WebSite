@@ -33,3 +33,7 @@
 .add_to_cart__btn:hover {
   background-color: greenyellow;
 }
+
+.products_container {
+  list-style: none;
+}
