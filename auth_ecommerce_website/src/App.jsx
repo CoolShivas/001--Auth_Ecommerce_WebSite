@@ -1,3 +1,4 @@
+import Bucket from "./components/pages/cart/Bucket";
 import AuthForm from "./components/auth/AuthForm";
 import ProductPage from "./components/pages/ProductPage";
 import ProfilePage from "./components/pages/ProfilePage";
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/home">  <HomePage></HomePage> </Route>
         <Route path="/profile"> <ProfilePage></ProfilePage> </Route>
         <Route path="/product"> <ProductPage></ProductPage> </Route>
+        <Route path="/cart"> <Bucket></Bucket> </Route>
       </>}
 
       {!isUserLogIn && <Route path="/auth"> <AuthForm></AuthForm> </Route>}
