@@ -1,8 +1,11 @@
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import styles from "./AuthForm.module.css";
+import ContextApi from "../store/ContextApi";
 
 
 const AuthForm = () => {
+
+    const { login } = useContext(ContextApi);
 
     const [isLoading, setIsLoading] = useState(false);
 
@@ -59,6 +62,7 @@ const AuthForm = () => {
             }).then((response) => {
                 console.log(response.idToken);
                 setIsLoading(false);
+                login(response.id);
             })
         } catch (error) {
             console.log(error.message);

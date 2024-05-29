@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
 
 const ContextApi = createContext({
@@ -11,16 +11,28 @@ const ContextApi = createContext({
 
 export const ProviderContextApi = ({ children }) => {
 
-    const handlerOnLogin = () => { };
+    const [initialToken, setInitialToken] = useState(null);
 
-    const handlerOnLogout = () => { };
+    const [isUserLogging, setIsUserLogging] = useState(initialToken);
+
+    const handlerOnLogin = (initialToken) => {
+        setInitialToken(initialToken);
+        setIsUserLogging(true);
+    };
+
+    const handlerOnLogout = () => {
+        setInitialToken(null);
+        setIsUserLogging(false);
+    };
 
     const contextValue = {
+        token: initialToken,
+        isUserLogIn: isUserLogging,
         login: handlerOnLogin,
         logout: handlerOnLogout,
     };
 
-    return <ContextApi.Provider value={{ contextValue }}>
+    return <ContextApi.Provider value={contextValue}>
         {children}
     </ContextApi.Provider>
 };
