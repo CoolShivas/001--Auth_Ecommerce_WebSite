@@ -8,3 +8,28 @@
   background-color: #028391;
   color: white;
 }
+
+.product_price__quantity {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.price {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.add_to_cart__btn {
+  padding: 2px 10px;
+  border: none;
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.add_to_cart__btn:hover {
+  background-color: greenyellow;
+}
