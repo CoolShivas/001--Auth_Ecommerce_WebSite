@@ -4,6 +4,7 @@ import ContextApi from "../store/ContextApi";
 
 
 const AuthForm = () => {
+    // Here, AuthForm is not in use. It is replaced by SignUp and Login Pages;
 
     const { login } = useContext(ContextApi);
 

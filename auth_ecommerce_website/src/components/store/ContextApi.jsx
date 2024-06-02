@@ -18,11 +18,13 @@ export const ProviderContextApi = ({ children }) => {
     const handlerOnLogin = (initialToken) => {
         setInitialToken(initialToken);
         // Getting the idToken as parameter here, to make sure about the unique identity of a particular user or make surity about that user should login not anyone else;
+        localStorage.setItem("SaveToken", initialToken);
         setIsUserLogging(true);
     };
 
     const handlerOnLogout = () => {
         setInitialToken(null);
+        localStorage.removeItem("SaveToken");
         setIsUserLogging(false);
     };
 

@@ -1,15 +1,18 @@
 import { useContext } from "react";
 import styles from "./Navbar.module.css";
-import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
+import { NavLink, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import ContextApi from "../store/ContextApi";
 
 const Navbar = () => {
+
+    const redirectToHomePage = useHistory();
 
     const { logout, isUserLogIn } = useContext(ContextApi);
 
     const handlerOnLogOut = () => {
         console.log("Logout Successfully");
         logout();
+        redirectToHomePage.replace("/home");
     };
 
 
