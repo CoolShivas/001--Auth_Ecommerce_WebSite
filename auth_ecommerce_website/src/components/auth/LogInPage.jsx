@@ -1,8 +1,13 @@
 import axios from "axios";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import styles from "./SignUpPage.module.css";
+import { useContext } from "react";
+import ContextApi from "../store/ContextApi";
 
 const LogInPage = () => {
+
+    const { login } = useContext(ContextApi);
+
     const redirectToSignUp = useHistory();
 
     const handlerOnRedirectLogin = () => {
@@ -28,6 +33,9 @@ const LogInPage = () => {
 
             console.log('Response:', res.data)
             console.log("Login Successfully");
+            console.log('idToken:', res.data.idToken)
+            login(res.data.idToken);
+            // Here, by doing login(res.data.idToken) this we are make sure that the particular user only log's in not anyother else that's why we have pass the idToken as arugmnet in login. That idToken is going to be grabbed in ContextApi in login handler as parameter to execute the function to that particular user only should login;
 
         } catch (error) {
             console.log(error, "Something went wrong with Login");

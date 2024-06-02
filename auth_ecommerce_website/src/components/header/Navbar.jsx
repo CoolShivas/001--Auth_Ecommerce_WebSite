@@ -8,7 +8,7 @@ const Navbar = () => {
     const { logout, isUserLogIn } = useContext(ContextApi);
 
     const handlerOnLogOut = () => {
-        console.log('logout')
+        console.log("Logout Successfully");
         logout();
     };
 
