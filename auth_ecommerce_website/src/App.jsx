@@ -17,21 +17,21 @@ const App = () => {
     <>
       <AppName></AppName>
 
-      {/* {isUserLogIn && <>
-        <Route path="/home">  <HomePage></HomePage> </Route>
+      {isUserLogIn && <>
         <Route path="/profile"> <ProfilePage></ProfilePage> </Route>
         <Route path="/product"> <ProductPage></ProductPage> </Route>
         <Route path="/cart"> <Bucket></Bucket> </Route>
       </>}
+      {/* If the user is LOGIN then router available to access are the above mentioned only; */}
 
-      {!isUserLogIn && <Route path="/auth"> <AuthForm></AuthForm> </Route>} */}
+      {!isUserLogIn && <>
+        <Route path="/home">  <HomePage></HomePage> </Route>
+        <Route path="/signup"> <SignUpPage></SignUpPage> </Route>
+        <Route path="/login"> <LogInPage></LogInPage> </Route>
+      </>}
+      {/* If the user is LOGOUT then router available to access are the above mentioned only; */}
 
-      <Route path="/home">  <HomePage></HomePage> </Route>
-      <Route path="/profile"> <ProfilePage></ProfilePage> </Route>
-      <Route path="/product"> <ProductPage></ProductPage> </Route>
-      <Route path="/cart"> <Bucket></Bucket> </Route>
-      <Route path="/signup"> <SignUpPage></SignUpPage> </Route>
-      <Route path="/login"> <LogInPage></LogInPage> </Route>
+
 
     </>
   )
