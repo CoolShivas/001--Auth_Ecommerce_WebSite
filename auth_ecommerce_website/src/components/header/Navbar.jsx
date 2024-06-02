@@ -16,31 +16,28 @@ const Navbar = () => {
     return (
         <div className={styles.navbar}>
             <ul className={styles.navbar_ultag}>
-                {isUserLogIn && <>
 
-                    <li>
-                        <NavLink to="/home" className={styles.nav_nav}> home </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/profile" className={styles.nav_nav}> profile </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/product" className={styles.nav_nav}> products </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/cart" className={styles.nav_nav}> cart </NavLink>
-                    </li>
+                <li>
+                    <NavLink to="/home" className={styles.nav_nav}> home </NavLink>
+                </li>
+                <li>
+                    <NavLink to="/profile" className={styles.nav_nav}> profile </NavLink>
+                </li>
+                <li>
+                    <NavLink to="/product" className={styles.nav_nav}> products </NavLink>
+                </li>
+                <li>
+                    <NavLink to="/cart" className={styles.nav_nav}> cart </NavLink>
+                </li>
 
-                </>}
-
-                {isUserLogIn && <li>
+                <li>
                     {/* <NavLink to="/" className={styles.nav_nav}> logout </NavLink> */}
                     <button className={styles.nav_nav} onClick={handlerOnLogOut}> Logout </button>
-                </li>}
+                </li>
 
-                {!isUserLogIn && <li>
-                    <NavLink to="/auth" className={styles.nav_nav}> login </NavLink>
-                </li>}
+                <li>
+                    <NavLink to="/login" className={styles.nav_nav}> login </NavLink>
+                </li>
 
             </ul>
         </div>

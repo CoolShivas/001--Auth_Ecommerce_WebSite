@@ -1,5 +1,6 @@
+import LogInPage from "./components/auth/LogInPage";
+import SignUpPage from "./components/auth/SignUpPage";
 import Bucket from "./components/pages/cart/Bucket";
-import AuthForm from "./components/auth/AuthForm";
 import ProductPage from "./components/pages/ProductPage";
 import ProfilePage from "./components/pages/ProfilePage";
 import HomePage from "./components/pages/HomePage";
@@ -16,14 +17,22 @@ const App = () => {
     <>
       <AppName></AppName>
 
-      {isUserLogIn && <>
+      {/* {isUserLogIn && <>
         <Route path="/home">  <HomePage></HomePage> </Route>
         <Route path="/profile"> <ProfilePage></ProfilePage> </Route>
         <Route path="/product"> <ProductPage></ProductPage> </Route>
         <Route path="/cart"> <Bucket></Bucket> </Route>
       </>}
 
-      {!isUserLogIn && <Route path="/auth"> <AuthForm></AuthForm> </Route>}
+      {!isUserLogIn && <Route path="/auth"> <AuthForm></AuthForm> </Route>} */}
+
+      <Route path="/home">  <HomePage></HomePage> </Route>
+      <Route path="/profile"> <ProfilePage></ProfilePage> </Route>
+      <Route path="/product"> <ProductPage></ProductPage> </Route>
+      <Route path="/cart"> <Bucket></Bucket> </Route>
+      <Route path="/signup"> <SignUpPage></SignUpPage> </Route>
+      <Route path="/login"> <LogInPage></LogInPage> </Route>
+
     </>
   )
 }
