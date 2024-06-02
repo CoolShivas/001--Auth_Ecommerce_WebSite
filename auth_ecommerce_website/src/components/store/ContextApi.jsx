@@ -11,7 +11,9 @@ const ContextApi = createContext({
 
 export const ProviderContextApi = ({ children }) => {
 
-    const [initialToken, setInitialToken] = useState(null);
+    const localGetTokenAfterRefresh = localStorage.getItem("SaveToken");
+
+    const [initialToken, setInitialToken] = useState(localGetTokenAfterRefresh);
 
     const [isUserLogging, setIsUserLogging] = useState(initialToken);
 
