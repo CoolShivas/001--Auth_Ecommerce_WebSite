@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import styles from "./SignUpPage.module.css";
 
@@ -8,15 +9,29 @@ const LogInPage = () => {
         redirectToSignUp.replace("/signup");
     };
 
-    const handlerOnSubmitForm = (event) => {
-        event.preventDefault();
+    const handlerOnSubmitForm = async (event) => {
+        try {
+            event.preventDefault();
 
-        const logInData = {
-            Email: event.target.email.value,
-            Password: event.target.password.value,
-        };
+            const logInDetails = {
+                Email: event.target.email.value,
+                Password: event.target.password.value,
+            };
 
-        console.log(logInData);
+            console.log(logInDetails);
+
+            const res = await axios.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyD1lOMdT2N9SYAGevw979kq67kvXyFqUFc`, {
+                email: logInDetails.Email,
+                password: logInDetails.Password,
+                returnSecureToken: true
+            })
+
+            console.log('Response:', res.data)
+            console.log("Login Successfully");
+
+        } catch (error) {
+            console.log(error, "Something went wrong with Login");
+        }
 
         event.target.email.value = "";
         event.target.password.value = "";
