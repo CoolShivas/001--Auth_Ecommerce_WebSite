@@ -1,0 +1,14 @@
+.welcome_page__div {
+  background-color: orange;
+  width: 50%;
+  margin: 5rem auto;
+  text-align: center;
+  padding: 1rem;
+
+  border-radius: 35%;
+  -webkit-border-radius: 35%;
+  -moz-border-radius: 35%;
+  -ms-border-radius: 35%;
+  -o-border-radius: 35%;
+  -webkit-border-radius: 35%;
+}
