@@ -1,3 +1,5 @@
+import { RiLogoutCircleRLine } from "react-icons/ri";
+import { FaShoppingCart } from "react-icons/fa";
 import { useContext } from "react";
 import styles from "./Navbar.module.css";
 import { NavLink, useHistory } from "react-router-dom/cjs/react-router-dom.min";
@@ -32,10 +34,11 @@ const Navbar = () => {
                         <NavLink to="/product" className={styles.nav_nav}> products </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/cart" className={styles.nav_nav}> cart </NavLink>
+                        <NavLink to="/cart" className={styles.nav_nav}> <FaShoppingCart /> </NavLink>
                     </li>
                     <li>
-                        <button className={styles.nav_nav} onClick={handlerOnLogOut}> Logout </button>
+                        <button className={styles.nav_logout} onClick={handlerOnLogOut}> <RiLogoutCircleRLine />
+                        </button>
                     </li>
                 </>}
                 {/* If the user is LOGIN then navlink available to visible are the above mentioned only; */}

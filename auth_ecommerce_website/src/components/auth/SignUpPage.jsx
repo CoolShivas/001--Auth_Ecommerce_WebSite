@@ -54,7 +54,7 @@ const SignUpPage = () => {
         event.target.email.value = "";
         event.target.password.value = "";
         event.target.confirmpassword.value = "";
-
+        setIsLoading(false);
     };
 
 

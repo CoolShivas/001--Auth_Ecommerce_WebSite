@@ -53,7 +53,7 @@ const LogInPage = () => {
 
         event.target.email.value = "";
         event.target.password.value = "";
-
+        setIsLoading(false);
     };
 
     return (
@@ -84,8 +84,8 @@ const LogInPage = () => {
 
                     <div className={styles.actions}>
                         {!isLoading && <button> Login </button>}
-                        {isLoading && <center><div class="spinner-grow" role="status">
-                            <span class="visually-hidden">Loading...</span>
+                        {isLoading && <center><div className="spinner-grow" role="status">
+                            <span className="visually-hidden">Loading...</span>
                         </div></center>}
 
                         <button onClick={handlerOnRedirectLogin}> Create Account </button>

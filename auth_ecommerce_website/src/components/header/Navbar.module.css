@@ -20,3 +20,21 @@
     }
   }
 }
+
+.nav_logout {
+  font-size: 25px;
+  background-color: greenyellow;
+  color: black;
+  border: none;
+
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+.nav_logout:hover {
+  background-color: red;
+  color: white;
+}
