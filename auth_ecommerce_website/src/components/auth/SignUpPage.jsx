@@ -1,8 +1,11 @@
 import axios from "axios";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import styles from "./SignUpPage.module.css";
+import { useState } from "react";
 
 const SignUpPage = () => {
+
+    const [isLoading, setIsLoading] = useState(false);
 
     const redirectToLogin = useHistory();
 
@@ -22,6 +25,7 @@ const SignUpPage = () => {
             };
 
             console.log(signUpDetails);
+            setIsLoading(true);
 
             if (signUpDetails.Password !== signUpDetails.ConfirmPassword) {
                 console.log("Password not matched");
@@ -37,6 +41,7 @@ const SignUpPage = () => {
 
             console.log('Response:', response.data)
             console.log("SignUp Successfully");
+            setIsLoading(false);
             alert("SignUp Successfully. Please, Login now.");
 
 
@@ -93,7 +98,8 @@ const SignUpPage = () => {
                     </div>
 
                     <div className={styles.actions}>
-                        <button type="submit"> Create Account </button>
+                        {!isLoading && <button type="submit"> Create Account </button>}
+                        {isLoading && <p className={styles.para_loading}> Sending Request... </p>}
                         <button onClick={handlerOnRedirectLogin}>
                             Already! Have an Account
                         </button>

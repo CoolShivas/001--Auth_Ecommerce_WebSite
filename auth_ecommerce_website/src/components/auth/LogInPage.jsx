@@ -1,11 +1,13 @@
 import axios from "axios";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import styles from "./SignUpPage.module.css";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import ContextApi from "../store/ContextApi";
-import ProductPage from "../pages/ProductPage";
+
 
 const LogInPage = () => {
+
+    const [isLoading, setIsLoading] = useState(false);
 
     const { login } = useContext(ContextApi);
 
@@ -27,6 +29,7 @@ const LogInPage = () => {
             };
 
             console.log(logInDetails);
+            setIsLoading(true);
 
             const res = await axios.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyD1lOMdT2N9SYAGevw979kq67kvXyFqUFc`, {
                 email: logInDetails.Email,
@@ -39,6 +42,7 @@ const LogInPage = () => {
             console.log('idToken:', res.data.idToken)
             login(res.data.idToken);
             // Here, by doing login(res.data.idToken) this we are make sure that the particular user only log's in not anyother else that's why we have pass the idToken as arugmnet in login. That idToken is going to be grabbed in ContextApi in login handler as parameter to execute the function to that particular user only should login;
+            setIsLoading(false);
             redirectToProductPage.replace("/product");
             // After login redirecting the user to ProductPage;
 
@@ -79,9 +83,14 @@ const LogInPage = () => {
                     </div>
 
                     <div className={styles.actions}>
-                        <button> Login </button>
+                        {!isLoading && <button> Login </button>}
+                        {isLoading && <center><div class="spinner-grow" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div></center>}
+
                         <button onClick={handlerOnRedirectLogin}> Create Account </button>
                     </div>
+
                 </form>
             </div>
         </div>
