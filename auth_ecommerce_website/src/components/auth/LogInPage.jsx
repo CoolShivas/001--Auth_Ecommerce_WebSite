@@ -44,6 +44,7 @@ const LogInPage = () => {
 
         } catch (error) {
             console.log(error, "Something went wrong with Login");
+            alert("Email or Password is wrong");
         }
 
         event.target.email.value = "";

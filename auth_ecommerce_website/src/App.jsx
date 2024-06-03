@@ -3,7 +3,7 @@ import LogInPage from "./components/auth/LogInPage";
 import SignUpPage from "./components/auth/SignUpPage";
 import Bucket from "./components/pages/cart/Bucket";
 import ProductPage from "./components/pages/ProductPage";
-import ProfilePage from "./components/pages/ProfilePage";
+import ProfilePage from "./components/auth/ProfilePage";
 import HomePage from "./components/pages/HomePage";
 import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
 import AppName from "./components/header/AppName";

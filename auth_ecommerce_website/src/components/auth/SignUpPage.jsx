@@ -37,11 +37,12 @@ const SignUpPage = () => {
 
             console.log('Response:', response.data)
             console.log("SignUp Successfully");
-
+            alert("SignUp Successfully. Please, Login now.");
 
 
         } catch (error) {
             console.log(error, "Something went wrong");
+            alert("Please, fill the details carefully!");
         }
 
 
