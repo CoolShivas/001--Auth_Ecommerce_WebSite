@@ -14,3 +14,39 @@
   -ms-border-radius: 12px;
   -o-border-radius: 12px;
 }
+
+.form_profile {
+  /* background-color: orange; */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  && input {
+    width: 100%;
+    padding: 8px;
+  }
+}
+
+.actions_profile {
+  /* background-color: red; */
+
+  && button {
+    background-color: #6b8a7a;
+    width: 100%;
+    border: none;
+    padding: 5px;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  && button:hover {
+    background-color: #ecb176;
+    width: 100%;
+    border: none;
+    padding: 5px;
+    color: black;
+    font-size: 25px;
+    font-weight: 500;
+  }
+}
